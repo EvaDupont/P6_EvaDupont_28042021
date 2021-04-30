@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const saucesRoutes = require('./routes/sauces');
+const sauceRoutes = require('./routes/Sauce');
 const userRoutes = require('./routes/user');
 
 const app = express();
@@ -29,7 +29,8 @@ app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
-app.use('/api/sauces', saucesRoutes);
+
 
 module.exports = app;
