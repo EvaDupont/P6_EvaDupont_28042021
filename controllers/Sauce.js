@@ -10,11 +10,11 @@ exports.createSauce = (req, res, next) => {
   console.log("test", sauceObject)
   delete sauceObject._id;
   const sauce = new Sauce({
-    ...sauceObject,
+    ...sauceObject, /* ... = spread permet la copie de la variable sauceObject*/
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   });
   console.log("test1", sauce)
-  sauce.save()
+  sauce.save() /*permet de sauvegarder la sauce en passant une promise : on attend une réponse soit tt est ok soit erreur */
     .then(() => res.status(201).json({ message: 'Sauce enregistrée !'})) 
     .catch(error => res.status(400).json({ error }));
 };

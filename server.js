@@ -1,7 +1,7 @@
-const http = require('http');
+const http = require('http'); /*pour sécuriser faudrait envisager https */
 const app = require('./app');
 
-/* renvoie a un port valide*/
+/* renvoie à un port valide*/
 const normalizePort = val => {
   const port = parseInt(val, 10);
 
