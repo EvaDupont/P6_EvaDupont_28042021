@@ -57,7 +57,7 @@ exports.likeSauce = (req, res, next) => {
       .then( () => res.status(200).json({ message: 'Vous n\'aimez pas cette sauce !' }))
       .catch( error => res.status(400).json({ error}))
 
-  } else {    // Annuler like ou dislike
+  } else {   
       Sauce.findOne( {_id: req.params.id})
       .then( sauce => {
           if( sauce.usersLiked.indexOf(req.body.userId)!== -1){

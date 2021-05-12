@@ -1,6 +1,6 @@
 
-/*module de hachage securisé pour chiffrer les données rendant leur lecture impossible par un utilisatuer malveillant 
-utilisation d'un hash = chaine choffrée pour crypter le mdp*/
+/*module de hachage securisé pour chiffrer les données rendant leur lecture impossible par un utilisateur malveillant 
+utilisation d'un hash = chaine chiffrée pour crypter le mdp*/
 const bcrypt = require('bcrypt'); 
 
 /*package pour créer et verifier les tokens d'authentification */
@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 /*fonction pour s'inscrire */
-      /*appel de la fonction de hashage dans le mdp en ajoutant une chaine de caractere pour aug la sécurité*/
+      /*appel de la fonction de hashage dans le mdp en ajoutant une chaine de caractere pour augmenter la sécurité*/
       
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10) 
@@ -28,7 +28,7 @@ exports.signup = (req, res, next) => {
 /* fonction pour se connecter 
     - va vérfier si l'user est deja ou non dans la base de données :
 utilisation de "compare" pour comparer le mdp et le hash enregistré dans la base de données 
-    -  initialisation du token ac l'id de l'usern une chaine secret d'encodage et une durée de validité 
+    -  initialisation du token ac l'id de l'user, une chaine secret d'encodage et une durée de validité 
 du token (dc de la session) */
 
 exports.login = (req, res, next) => {

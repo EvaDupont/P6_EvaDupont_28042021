@@ -1,6 +1,6 @@
-const express = require('express'); /* Framework qui facilite le déploiement des API*/
-const bodyParser = require('body-parser'); /* module permettant d'extraire l'objet JSON de la dde POST et analyser le body d la requete*/
-const mongoose = require('mongoose');/*package pour lié le code source à la base de données MondoDB (version Altas ici)*/
+const express = require('express'); /* Framework qui facilite la création de serveur*/
+const bodyParser = require('body-parser'); /* module permettant d'extraire l'objet JSON de la dde POST et analyser le body de la requete*/
+const mongoose = require('mongoose');/*package pour lier le code source à la base de données MondoDB (version Altas ici)*/
 const path = require('path'); /*package pour manipuler et assurer les chemins vers les fichiers et les repertoires du code */
 
 const sauceRoutes = require('./routes/Sauce');
@@ -8,7 +8,7 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
-mongoose.connect("mongodb+srv://Eva:3rgcBa9ULqCEjmQg@cluster0.16w5x.mongodb.net/test?retryWrites=true&w=majority", /*si prb voir si "test" en est la cause */
+mongoose.connect("mongodb+srv://Eva:3rgcBa9ULqCEjmQg@cluster0.16w5x.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true,
     useUnifiedTopology: true 
   })
@@ -17,7 +17,7 @@ mongoose.connect("mongodb+srv://Eva:3rgcBa9ULqCEjmQg@cluster0.16w5x.mongodb.net/
 
 /*CORS Cross Origin Resource Sharing : systeme de sécurité qui empêche les requetes malveillantes*/
 
-/*ces headers permettent d'accéder à l'api depuis n'importe quelle origine + d'envoyer des requêtes avec les methodes GET, POST...*/
+/*ces headers permettent d'accéder au serveur depuis n'importe quelle origine + d'envoyer des requêtes avec les methodes GET, POST...*/
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');

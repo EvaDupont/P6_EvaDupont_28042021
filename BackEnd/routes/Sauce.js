@@ -6,7 +6,8 @@ const auth = require('../middleware/auth');
 const multer = require('../middleware/multer-config');
 
 /* mutler ici = pour que le telechargement des images fonctionne sur les routes */
-/* ordre des middlewares est important : si multer avant auth : les images des requêtes non authentifiées seront enregistrées dans le serveur.*/
+/* ordre des middlewares est important : si multer avant auth : 
+les images des requêtes non authentifiées seront enregistrées dans le serveur.*/
 
 router.post('/', auth, multer, sauceCtrl.createSauce);   /*creation de fiche sauce (C)*/
 router.get('/', auth, sauceCtrl.getAllSauces);           /*obtenir la liste de toutes les sauces (R)*/
